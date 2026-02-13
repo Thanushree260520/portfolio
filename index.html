@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanu Shree | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#ffffff;
+    color:#000000;
+}
+
+/* Header */
+header{
+    background:#000000;
+    color:#ffffff;
+    text-align:center;
+    padding:60px 20px;
+}
+
+header h1{
+    font-size:38px;
+    font-weight:600;
+}
+
+header p{
+    margin-top:8px;
+}
+
+/* Sections */
+section{
+    margin:50px auto;
+    width:90%;
+    max-width:900px;
+    padding:30px;
+    border:2px solid #000;
+    border-radius:10px;
+    background:#fff;
+    transition:0.3s;
+}
+
+section:hover{
+    transform:translateY(-5px);
+}
+
+h2{
+    margin-bottom:20px;
+    border-bottom:2px solid #000;
+    display:inline-block;
+    padding-bottom:5px;
+}
+
+/* Education */
+.education-item{
+    margin-bottom:20px;
+}
+
+.education-item h3{
+    margin-bottom:5px;
+}
+
+/* Skills Layout */
+.skills-container{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.skills-box{
+    width:48%;
+}
+
+.skills-box ul{
+    list-style:disc;
+    padding-left:20px;
+}
+
+/* Projects */
+.project{
+    padding:15px;
+    margin-bottom:15px;
+    border:1px solid #000;
+    border-radius:8px;
+}
+
+/* Buttons */
+button{
+    padding:8px 15px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:10px;
+    font-weight:500;
+    border:1px solid #000;
+    background:#000;
+    color:#fff;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#fff;
+    color:#000;
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:6px;
+    border:1px solid #000;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Thanushree U</h1>
+    <p>USN:1VA23CD113</p>
+    <p>Email:shreethanu47@gmail.com | Phone: 9448689576</p>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <p>
+        I am a passionate Computer Science student specializing in Data Science. 
+        I have a strong interest in data analysis and solving real-world problems 
+        using data-driven approaches. I enjoy working with Python, SQL, and visualization tools 
+        to extract meaningful insights from data.
+    </p>
+</section>
+
+<section>
+    <h2>Education</h2>
+
+    <div class="education-item">
+        <h3>Sai Vidya Institue of Technology</h3>
+        <p><strong>Course:</strong> Bachelor of Engineering in CSE(Data Science)</p>
+        <p><strong>Year:</strong> 2023 – Present</p>
+    </div>
+
+    <div class="education-item">
+        <h3>St Claret PU College</h3>
+        <p><strong>Course:</strong> PCMB</p>
+        <p><strong>Year:</strong> 2021 – 2023</p>
+    </div>
+
+    <div class="education-item">
+        <h3>Nirmala Rani High School</h3>
+        <p><strong>Course:</strong> SSLC</p>
+        <p><strong>Year:</strong> 2021</p>
+    </div>
+
+</section>
+
+<section>
+    <h2>Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skills-box">
+            <h3>Technical Skills</h3>
+            <ul>
+                <li>Python,Java (Basics)</li>
+                <li>SQL (Basics)</li>
+                <li>Data Analysis - Tableau, PowerBI (Basics)</li>
+            </ul>
+        </div>
+
+        <div class="skills-box">
+            <h3>Soft Skills</h3>
+            <ul>
+                <li>Communication</li>
+                <li>Teamwork</li>
+                <li>Time Management</li>
+                <li>Adaptability</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>Projects</h2>
+
+    <div id="projectList">
+        <div class="project">
+            <h3>Smart Crop Management - Yield Prediction & Fertilizer and Pesticide Recommendation</h3>
+            <li>Developed a data driven system to predict yield using Streamlit.</li>
+            <li>Analyzed agricultural datasets to recommend suitable fertilizers and pesticides.</li>
+            <li>Built basic visualizations to support agricultural decision-making.</li>
+            <li>Technologies Used: Python, Pandas, NumPy, Streamlit, Matplotlib.</li>
+            <button onclick="deleteProject(this)">Delete</button>
+        </div>
+    </div>
+
+    <button onclick="addProject()">+ Add Project</button>
+</section>
+
+<section>
+    <h2>Contact Me</h2>
+
+    <p>If you find my portfolio interesting, feel free to email me at:</p>
+    <p><strong>shreethanu47@gmail.com</strong></p>
+
+    <h3 style="margin-top:20px;">Send a Message</h3>
+
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    © 2026 Thanu Shree | Portfolio
+</footer>
+
+<script>
+function addProject(){
+    const title = prompt("Enter Project Title:");
+    const desc = prompt("Enter Project Description:");
+
+    if(title && desc){
+        const div = document.createElement("div");
+        div.className="project";
+        div.innerHTML=`
+            <h3>${title}</h3>
+            <p>${desc}</p>
+            <button onclick="deleteProject(this)">Delete</button>
+        `;
+        document.getElementById("projectList").appendChild(div);
+    }
+}
+
+function deleteProject(button){
+    button.parentElement.remove();
+}
+</script>
+
+</body>
+</html>
